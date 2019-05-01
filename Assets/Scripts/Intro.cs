@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Intro : MonoBehaviour {
+public class Intro : Cutscene {
 
 	public Text ram;
 	public Text rom;
@@ -13,12 +13,7 @@ public class Intro : MonoBehaviour {
 
 	public GameObject grid;
 
-	void Start ()
-	{
-		StartCoroutine(RamRomText());
-	}
-
-	IEnumerator RamRomText()
+	protected override IEnumerator Play()
 	{
 		// Grid
 		yield return new WaitForSeconds(0.75f);
@@ -100,6 +95,11 @@ public class Intro : MonoBehaviour {
 
 		// Load the game
 		yield return new WaitForSeconds(1f);
-		SceneManager.LoadScene("Game");
+        End();
 	}
+
+    protected override void End()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
