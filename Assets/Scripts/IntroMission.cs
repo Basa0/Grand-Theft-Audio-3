@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class IntroMission : MonoBehaviour {
+public class IntroMission : Cutscene {
 
 	public GameObject player;
 	public GameObject playerIntro;
@@ -13,21 +13,7 @@ public class IntroMission : MonoBehaviour {
 	public Text introText;
 	public Text missionNameText;
 
-	void Start()
-	{
-		StartCoroutine("StartIntro");
-		PlayerPrefs.SetString("player", "orange");
-	}
-
-    void Update()
-    {
-        if (Input.anyKey) {
-            StopCoroutine("StartIntro");
-            CleanupIntro();
-        }
-    }
-
-	IEnumerator StartIntro()
+	protected override IEnumerator Play()
     {
         yield return new WaitForSeconds(1f);
         missionNameText.gameObject.SetActive(true);
@@ -38,11 +24,13 @@ public class IntroMission : MonoBehaviour {
         yield return new WaitForSeconds(4f);
         missionNameText.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
-        CleanupIntro();
+
+        End();
     }
 
-    private void CleanupIntro()
+    protected override void End()
     {
+        missionNameText.gameObject.SetActive(false);
         introText.text = "";
         heightBall.gameObject.SetActive(false);
         playerIntro.gameObject.SetActive(false);
