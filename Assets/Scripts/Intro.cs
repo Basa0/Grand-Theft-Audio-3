@@ -10,10 +10,20 @@ public class Intro : Cutscene {
 	public Text bigR;
 	public Text roucasseGames;
 	public Image fade;
+    public Text loadingText;
 
-	public GameObject grid;
+    public GameObject grid;
 
-	protected override IEnumerator Play()
+    private AsyncOperation _sceneLoad;
+
+    protected override void Start()
+    {
+        _sceneLoad = SceneManager.LoadSceneAsync("Game");
+        _sceneLoad.allowSceneActivation = false;
+        base.Start();
+    }
+
+    protected override IEnumerator Play()
 	{
 		// Grid
 		yield return new WaitForSeconds(0.75f);
@@ -100,6 +110,7 @@ public class Intro : Cutscene {
 
     protected override void End()
     {
-        SceneManager.LoadScene("Game");
+        loadingText.gameObject.SetActive(true);
+        _sceneLoad.allowSceneActivation = true;
     }
 }

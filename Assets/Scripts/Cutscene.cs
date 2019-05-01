@@ -8,13 +8,13 @@ public abstract class Cutscene : MonoBehaviour
     protected abstract IEnumerator Play();
     protected abstract void End();
 
-    void Start()
+    protected virtual void Start()
     {
         _coroutine = StartCoroutine(Play());
         PlayerPrefs.SetString("player", "orange");
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (Input.anyKeyDown) {
             StopCoroutine(_coroutine);
