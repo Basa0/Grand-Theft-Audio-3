@@ -9,7 +9,7 @@ public class IntroMission : Cutscene {
 	public GameObject heightBall;
 	public GameObject blackBar;
 	public GameObject gameUI;
-	public Camera introCamera;
+	//public Camera introCamera;
 	public Text introText;
 	public Text missionNameText;
 
@@ -35,7 +35,7 @@ public class IntroMission : Cutscene {
         heightBall.gameObject.SetActive(false);
         playerIntro.gameObject.SetActive(false);
         blackBar.gameObject.SetActive(false);
-        introCamera.gameObject.SetActive(false);
+        //introCamera.gameObject.SetActive(false);
         introText.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(true);

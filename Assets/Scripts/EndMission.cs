@@ -16,7 +16,7 @@ public class EndMission : MonoBehaviour {
 	public GameObject package;
 	public GameObject blackBar;
 	public GameObject gameUI;
-	public Camera introCamera;
+	//public Camera introCamera;
 	public Text introText;
 
 	void OnTriggerEnter(Collider other)
@@ -33,15 +33,15 @@ public class EndMission : MonoBehaviour {
 		heightBallOrange.gameObject.SetActive(true);
 		playerIntroOrange.gameObject.SetActive(true);
 		blackBar.gameObject.SetActive(true);
-		introCamera.gameObject.SetActive(true);
+		//introCamera.gameObject.SetActive(true);
 		introText.gameObject.SetActive(true);
 
 		heightBallOrange.transform.position = new Vector3(-224, -3, 161);
 		heightBallOrange.transform.eulerAngles = new Vector3(0, 45, 0);
 		playerIntroOrange.transform.position = new Vector3(-224, -3, 165);
 		playerIntroOrange.transform.eulerAngles = new Vector3(0, 120, 0);
-		introCamera.transform.position = new Vector3(-232, 5, 158);
-		introCamera.transform.eulerAngles = new Vector3(25, 75, 0);
+		//introCamera.transform.position = new Vector3(-232, 5, 158);
+		//introCamera.transform.eulerAngles = new Vector3(25, 75, 0);
 
 		yield return new WaitForSeconds(2f);
 		introText.text = "This is the place right here, let's get off the street and find a change of clothes!";
@@ -57,8 +57,8 @@ public class EndMission : MonoBehaviour {
 		heightBallNormal.transform.eulerAngles = new Vector3(0, -80, 0);
 		playerIntroNormal.transform.position = new Vector3(-225, -3, 165);
 		playerIntroNormal.transform.eulerAngles = new Vector3(0, 100, 0);
-		introCamera.transform.position = new Vector3(-225, 0, 160);
-		introCamera.transform.eulerAngles = new Vector3(20, 25, 0);
+		//introCamera.transform.position = new Vector3(-225, 0, 160);
+		//introCamera.transform.eulerAngles = new Vector3(20, 25, 0);
 
 		yield return new WaitForSeconds(1f);
 		introText.text = "Now explore the city ! I found a package, I've heard there are more hidden in the city.";
@@ -71,7 +71,7 @@ public class EndMission : MonoBehaviour {
 		heightBallNormal.gameObject.SetActive(false);
 		playerIntroNormal.gameObject.SetActive(false);
 		blackBar.gameObject.SetActive(false);
-		introCamera.gameObject.SetActive(false);
+		//introCamera.gameObject.SetActive(false);
 		introText.gameObject.SetActive(false);
 
 		playerPlay.gameObject.SetActive(true);
